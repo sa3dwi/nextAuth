@@ -6,8 +6,8 @@ const options: any = {
     providers: [
         // TODO: add the proper keys into env file
         TwitterProvider({
-            clientId: 'r4jx3VErJiP9yZKML3jMIgjWQ',
-            clientSecret: 'cXCqv92rWZFGZ7TARAamf0J1hKl9szDtJULs5uZZKCGNdt1NgX'
+            clientId: 'DAnLodnPJCEBaBGJf6gi5qomN',
+            clientSecret: 'YvdyQbeLio1vdBzCauXVe86RKVyCjcvbxVxPL89xRZ62zBPPQc'
         })
     ],
     secret: 'abcdef',
