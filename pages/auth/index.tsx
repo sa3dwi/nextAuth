@@ -2,7 +2,7 @@ import React from "react";
 import { signIn, useSession } from "next-auth/react";
 
 export default function PartnerCta() {
-  const { session, loading } = useSession() as any
+  const [session, loading] = useSession() as any 
   console.log("🚀 ~ file: index.tsx:6 ~ PartnerCta ~ session:", session)
 
   const authorizeOnTwitter = () => {
@@ -15,11 +15,12 @@ export default function PartnerCta() {
   }
 
   if (!session) {
-    return <button onClick={() => signIn()}>Sign in with Twitter</button>;
+    return <button onClick={() => signIn('twitter')}>Sign in with Twitter11</button>;
   }
 
   return (
     <>
+    <p>User ID: {session.user.id}</p>
       <button
         className="flex items-center justify-between py-2 my-4 btn btn-primary"
         type="button"
