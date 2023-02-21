@@ -10,6 +10,7 @@ const options: any = {
             clientSecret: 'cXCqv92rWZFGZ7TARAamf0J1hKl9szDtJULs5uZZKCGNdt1NgX'
         })
     ],
+    secret: 'abcdef',
     callbacks: {
         async signIn(user:any, account:any, profile:any) {
             console.log('🚀 ~ file: [...nextauth].page.tsx:15 ~ signIn ~ user', user)
