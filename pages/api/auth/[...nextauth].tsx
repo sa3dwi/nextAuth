@@ -11,7 +11,7 @@ const options: any = {
         })
     ],
     callbacks: {
-        async signIn(user, account, profile) {
+        async signIn(user:any, account:any, profile:any) {
             console.log('🚀 ~ file: [...nextauth].page.tsx:15 ~ signIn ~ user', user)
             return true
         }
