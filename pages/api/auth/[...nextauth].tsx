@@ -13,8 +13,8 @@ const options: any = {
     secret: 'abcdef',
     callbacks: {
         async signIn(user:any, account:any, profile:any) {
-            console.log('🚀 ~ file: [...nextauth].page.tsx:15 ~ signIn ~ user', user)
-            return true
+            console.log('🚀 ~ file: [...nextauth].page.tsx:15 ~ signIn ~ profile', profile)
+            return user
         }
     },
     session: {
