@@ -10,10 +10,6 @@ export default function PartnerCta() {
     console.log("🚀 ~ file: index.page.tsx:7 ~ authorizeOnTwitter ~ aa:", aa)
   };
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
   if (!session) {
     return <button onClick={() => signIn('twitter')}>Sign in with Twitter11</button>;
   }
