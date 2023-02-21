@@ -20,7 +20,7 @@ export default function PartnerCta() {
 
   return (
     <>
-    <p>User ID: {session.user.id}</p>
+    <p>User ID: {session?.user?.id}</p>
       <button
         className="flex items-center justify-between py-2 my-4 btn btn-primary"
         type="button"
