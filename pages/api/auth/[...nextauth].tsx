@@ -12,9 +12,11 @@ const options: any = {
   ],
   secret: "abcdef",
   callbacks: {
-    session: async ({ session, token }: any) => {
+    session: async ({ session, account, profile, token }: any) => {
       if (session?.user) {
-        session.user.token = token;
+        session.token = token;
+        session.account = account;
+        session.screenName = profile.screen_name;
         session.user.id = token.uid;
       }
       return session;
@@ -22,8 +24,9 @@ const options: any = {
     jwt: async ({ user, account, profile, token }: any) => {
       if (user) {
         token.uid = user.id;
-        token.account = account;
-        token.profile = profile;
+        // token.account = account;
+        // token.screenName = profile.screen_name;
+        // token.displayName = profile.name;
       }
       return token;
     },
