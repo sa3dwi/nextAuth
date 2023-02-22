@@ -1,26 +1,41 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import NextAuth from 'next-auth'
-import TwitterProvider from 'next-auth/providers/twitter'
+import { NextApiRequest, NextApiResponse } from "next";
+import NextAuth from "next-auth";
+import TwitterProvider from "next-auth/providers/twitter";
 
 const options: any = {
-    providers: [
-        // TODO: add the proper keys into env file
-        TwitterProvider({
-            clientId: 'DAnLodnPJCEBaBGJf6gi5qomN',
-            clientSecret: 'YvdyQbeLio1vdBzCauXVe86RKVyCjcvbxVxPL89xRZ62zBPPQc'
-        })
-    ],
-    secret: 'abcdef',
-    callbacks: {
-        async signIn(user:any, account:any, profile:any) {
-            console.log('🚀 ~ file: [...nextauth].page.tsx:15 ~ signIn ~ profile', profile)
-            return user
-        }
+  providers: [
+    // TODO: add the proper keys into env file
+    TwitterProvider({
+      clientId: "DAnLodnPJCEBaBGJf6gi5qomN",
+      clientSecret: "YvdyQbeLio1vdBzCauXVe86RKVyCjcvbxVxPL89xRZ62zBPPQc",
+    }),
+  ],
+  secret: "abcdef",
+  // callbacks: {
+  //     async signIn(user:any, account:any, profile:any) {
+  //         console.log('🚀 ~ file: [...nextauth].page.tsx:15 ~ signIn ~ profile', profile)
+  //         return account
+  //     }
+  // },
+  callbacks: {
+    session: async ({ session, token }: any) => {
+      if (session?.user) {
+        session.user.id = token.uid;
+      }
+      return session;
     },
-    session: {
-        jwt: true
+    jwt: async ({ user, token }: any) => {
+      if (user) {
+        token.uid = user.id;
+      }
+      return token;
     },
-    debug: true
-}
+  },
+  session: {
+    jwt: true,
+  },
+  debug: true,
+};
 
-export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options)
+export default (req: NextApiRequest, res: NextApiResponse) =>
+  NextAuth(req, res, options);
