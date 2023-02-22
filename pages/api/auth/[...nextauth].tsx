@@ -18,6 +18,7 @@ const options: any = {
         session.screenName = token.screenName;
         session.displayName = token.displayName;
         session.user.id = token.uid;
+        session.token = token;
       }
       return session;
     },
@@ -27,6 +28,8 @@ const options: any = {
         token.account = account;
         token.screenName = profile.screen_name;
         token.displayName = profile.name;
+        token.account = account;
+        token.profile = profile;
       }
       return token;
     },
