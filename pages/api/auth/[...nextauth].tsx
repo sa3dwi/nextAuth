@@ -11,15 +11,10 @@ const options: any = {
     }),
   ],
   secret: "abcdef",
-  // callbacks: {
-  //     async signIn(user:any, account:any, profile:any) {
-  //         console.log('🚀 ~ file: [...nextauth].page.tsx:15 ~ signIn ~ profile', profile)
-  //         return account
-  //     }
-  // },
   callbacks: {
     session: async ({ session, token }: any) => {
       if (session?.user) {
+        session.user.token = token;
         session.user.id = token.uid;
       }
       return session;
