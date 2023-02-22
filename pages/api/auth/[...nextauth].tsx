@@ -22,6 +22,7 @@ const options: any = {
     jwt: async ({ user, token }: any) => {
       if (user) {
         token.uid = user.id;
+        token.user = user;
       }
       return token;
     },
