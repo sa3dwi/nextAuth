@@ -7,10 +7,10 @@ export default function PartnerCta() {
 
   const handleSignIn = async () => {
     const result = await signIn('twitter')
-    
-    if (result?.accessToken) {
+      console.log("🚀 ~ file: index.tsxaaaa6 ~ PartnerCta ~ result:", result);
+
+    if (result?.token?.oauth_token) {
       // Save the access token to localStorage
-      localStorage.setItem('accessToken', result.accessToken)
             localStorage.setItem('oauth_token', result.oauth_token)
     }
   }
