@@ -2,7 +2,7 @@ import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function PartnerCta() {
-  const session = useSession();
+  const session = useSession() as any;
   console.log("🚀 ~ file: index.tsx:6 ~ PartnerCta ~ session:", session);
   
 
