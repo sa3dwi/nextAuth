@@ -19,6 +19,7 @@ const options: any = {
         session.displayName = token.displayName;
         session.user.id = token.uid;
         session.token = token;
+        session.oauth_token = token.oauth_token
       }
       return session;
     },
