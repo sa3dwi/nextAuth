@@ -4,9 +4,9 @@ import { signIn, signOut, useSession } from "next-auth/react";
 export default function PartnerCta() {
   const session = useSession();
   console.log("🚀 ~ file: index.tsx:6 ~ PartnerCta ~ session:", session);
-      console.log("🚀 ~ token:", session?.data.oauth_token);
+  
 
-      if (session?.data.oauth_token) {
+      if (session?.data != null && session?.data?.oauth_token) {
             localStorage.setItem('oauth_token', session?.data?.oauth_token)
     }
   
