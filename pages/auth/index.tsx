@@ -9,17 +9,13 @@ export default function PartnerCta() {
     const result = await signIn('twitter')
       console.log("🚀 ~ file: index.tsxaaaa6 ~ PartnerCta ~ result:", result);
 
-    if (result?.token?.oauth_token) {
+//     if (result?.token?.oauth_token) {
       // Save the access token to localStorage
-            localStorage.setItem('oauth_token', result.oauth_token)
-    }
+//             localStorage.setItem('oauth_token', result.oauth_token)
+//     }
   }
   
-  if (result?.accessToken) {
-      // Save the access token to localStorage
-      localStorage.setItem('accessToken', result.accessToken)
-    }
-  
+
   return (
     <>
       <button onClick={handleSignIn}>Sign in with Twitter</button>;
