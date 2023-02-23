@@ -31,11 +31,11 @@ const options: any = {
         token.account = account;
         token.profile = profile;
       }
-      if (account?.oauth_token) {
-        token.oauth_token = account.oauth_token
-        // Store the accessToken in localStorage
-        localStorage.setItem('nextAuthAccessToken', account.oauth_token)
-      }
+//       if (account?.oauth_token) {
+//         token.oauth_token = account.oauth_token
+//         // Store the accessToken in localStorage
+//         localStorage.setItem('nextAuthAccessToken', account.oauth_token)
+//       }
       return token;
     },
   },
