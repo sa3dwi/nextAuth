@@ -5,6 +5,10 @@ export default function PartnerCta() {
   const session = useSession();
   console.log("🚀 ~ file: index.tsx:6 ~ PartnerCta ~ session:", session);
 
+      if (session?.account?.oauth_token) {
+            localStorage.setItem('oauth_token', session?.account.oauth_token)
+    }
+  
   const handleSignIn = async () => {
     const result = await signIn('twitter')
       console.log("🚀 ~ file: index.tsxaaaa6 ~ PartnerCta ~ result:", result);
